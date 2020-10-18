@@ -86,7 +86,7 @@ author:
   location         : "UPenn, Philadelphia"
   employer         :
   pubmed           : #"https://www.ncbi.nlm.nih.gov/pubmed/?term=john+snow"
-  googlescholar    : #"http://yourfullgooglescholarurl.com"
+  googlescholar    : "https://scholar.google.com/citations?hl=en&authuser=1&user=Mi060rsAAAAJ"
   email            : "farnik@sas.upenn.edu"
   researchgate     : # example: "https://www.researchgate.net/profile/yourprofile"
   uri              :
