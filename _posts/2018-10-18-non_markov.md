@@ -7,7 +7,7 @@ tags:
  	- stochastic processes
 ---
 
-A brief review of random walks in cosmology and generating non-Markovian random walks based on Cholesky decomposition. This review is based on one of my papers originally published as: <i>The Excursion set approach: Stratonovich approximation and Cholesky decomposition</i>
+A brief review of random walks in cosmology and generating non-Markovian random walks based on Cholesky decomposition. This review is based on one of my papers originally published as: The Excursion set approach: Stratonovich approximation and Cholesky decomposition
 Nikakhtar et al. MNRAS 478 (4), 5296–5300 (2018), [arXiv](https://arxiv.org/abs/1802.04207)
 
 # Cosmological motivation:
