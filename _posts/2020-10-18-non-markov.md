@@ -47,7 +47,7 @@ L = \begin{pmatrix}
 \end{equation}
 $$
 
-where the $c_{ij}$ are the elements of $C$, $R_m = c_{ij} {i,j = 1}^m$, $R_m^{-1}$ is its inverse, and $c_i^{\*j} = (c_{1j}, c_{2j}, \dots, c_{i-1 j})$ for $j \geq i$, so $c_i \equiv c_i^{\*i}$. Inserting this expression for $L$ shows that, in effect, this algorithm gets $\delta_i$ as a Gaussian random variate with mean and variance which are constrained by the heights on the previous steps. Algorithmically, our Cholesky decomposition algorithm constructs $L$ as follows:
+where the $c_{ij}$ are the elements of $C$, $R_m = c_{ij}\|_{i,j = 1}^m$, $R_m^{-1}$ is its inverse, and $c_i^{\*j} = (c_{1j}, c_{2j}, \dots, c_{i-1 j})$ for $j \geq i$, so $c_i \equiv c_i^{\*i}$. Inserting this expression for $L$ shows that, in effect, this algorithm gets $\delta_i$ as a Gaussian random variate with mean and variance which are constrained by the heights on the previous steps. Algorithmically, our Cholesky decomposition algorithm constructs $L$ as follows:
 
  ![cholesky](/images/blog_images/non-markov/cholesky.png)
 
