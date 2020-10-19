@@ -1,4 +1,6 @@
 ---
+header-includes:
+  - \usepackage{algorithm2e}
 title: 'Non-Markovian random walks'
 date: 2020-10-18
 permalink: /posts/2018/10/non-markov
@@ -47,9 +49,27 @@ L = \begin{pmatrix}
 \end{equation}
 $$
 
-where the $c_{ij}$ are the elements of $C$, $R_m = c_{ij}\|_{i,j = 1}^m$, $R_m^{-1}$ is its inverse, and $c_i^{\*j} = (c_{1j}, c_{2j}, \dots, c_{i-1 j})$ for $j \geq i$, so $c_i \equiv c_i^{\*i}$. Inserting this expression for $L$ shows that, in effect, this algorithm gets $\delta_i$ as a Gaussian random variate with mean and variance which are constrained by the heights on the previous steps. Algorithmically, our Cholesky decomposition algorithm constructs $L$ as follows:
+where the $c_{ij}$ are the elements of $C$, $R_m = c_{ij}|\_{i,j = 1}^m$, $R_m^{-1}$ is its inverse, and $c_i^{\*j} = (c_{1j}, c_{2j}, \dots, c_{i-1 j})$ for $j \geq i$, so $c_i \equiv c_i^{\*i}$. Inserting this expression for $L$ shows that, in effect, this algorithm gets $\delta_i$ as a Gaussian random variate with mean and variance which are constrained by the heights on the previous steps. Algorithmically, our Cholesky decomposition algorithm constructs $L$ as follows:
 
- ![cholesky](/images/blog_images/non-markov/cholesky.png)
+\begin{algorithm}[H]
+\DontPrintSemicolon
+\SetAlgoLined
+\KwResult{Write here the result}
+\SetKwInOut{Input}{Input}\SetKwInOut{Output}{Output}
+\Input{Write here the input}
+\Output{Write here the output}
+\BlankLine
+\While{While condition}{
+    instructions\;
+    \eIf{condition}{
+        instructions1\;
+        instructions2\;
+    }{
+        instructions3\;
+    }
+}
+\caption{While loop with If/Else condition}
+\end{algorithm} 
 
  Note that we could instead have chosen to work with the basis in which $C$ is diagonal.  If $\lambda_k$ and $v_k$ denote the eigenvalues and eigenvectors of $C$, then each $\delta_i$ is a suitably weighted linear combination of all the $v_k$.  We call this the "eigen-decomposition" method.  In practice, diagonalizing requires more operations than Cholesky, so it is not as efficient.  For small matrices, the difference is not large, but when $C$ is a $10^4\times 10^4$ matrix, as for the walks shown in the main text, we found Cholesky was about $40\times$ faster than the eigen-decomposition method.
 
