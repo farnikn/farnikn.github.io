@@ -35,12 +35,7 @@ $$ \langle \delta_i \delta_j \rangle = \sum_{n,m} L_{im} L_{jn} \langle \xi_m \x
 
 Since $L$ is triangular, each $\delta_i$ really only requires a sum over $j \le i$, so this method is fast. This also means that, in effect, this decomposition gets $\delta_i$ as a Gaussian random variate with mean and variance which are constrained by the heights on the previous steps. Algorithmically, the Cholesky decomposition algorithm constructs $L$ as follows:
 
-```{}
-INPUT n, $C_{ij}$
-FOR k=1,2,...,n DO
-	
-     
-```
+![cholesky](/images/blog_images/non-markov/cholesky.png)
 
 Note that we could instead have chosen to work with the basis in which $C$ is diagonal.  If $\lambda_k$ and $v_k$ denote the eigenvalues and eigenvectors of $C$, then each $\delta_i$ is a suitably weighted linear combination of all the $v_k$.  We call this the "eigen-decomposition" method.  In practice, diagonalizing requires more operations than Cholesky, so it is not as efficient.  For small matrices, the difference is not large, but when $C$ is a $10^4\times 10^4$ matrix, as for the walks shown in the main text, we found Cholesky was about $40\times$ faster than the eigen-decomposition method.
 
