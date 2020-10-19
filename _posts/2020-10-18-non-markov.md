@@ -33,11 +33,11 @@ then the $\delta_i$ will have correlations between heights given by
 
 $$ \langle \delta_i \delta_j \rangle = \sum_{n,m} L_{im} L_{jn} \langle \xi_m \xi_n \rangle = LL^T = C. $$
 
-Since $\mathbf{L}$ is triangular, each $\delta_i$ really only requires a sum over $j \le i$, so this method is fast. The matrix $\mathbf{L}$ is given by
+Since $L$ is triangular, each $\delta_i$ really only requires a sum over $j \le i$, so this method is fast. The matrix $L$ is given by
 
 $$
 \begin{equation}
-\mathbf{L} = \begin{pmatrix}
+L = \begin{pmatrix}
 		1 & 0 & 0 & \cdots & 0 \\
 		c_{12} & \sqrt{1 - c_{12}^2} & 0 & \cdots & 0 \\
 		c_{13} & \frac{c_{23} - c_{12}c_{13}}{\sqrt{1 - c_{12}^2}} & \sqrt{1 - c_3 R_2^{-1} c_3^T} & \cdots & 0 \\
@@ -47,29 +47,13 @@ $$
 \end{equation} 
 $$
 
-where the $c_{ij}$ are the elements of $\mathbf{C}$, $R_m = c_{ij}|_{i,j = 1}^m$, $R_m^{-1}$ is its inverse, and $c_i^{*j} = (c_{1j}, c_{2j}, \dots, c_{i-1 j})$ for $j \geq i$, so $c_i \equiv c_i^{*i}$. Inserting this expression for $\mathbf{L}$ into equation~(\ref{deltaL}) shows that, in effect, this algorithm gets $\delta_i$ as a Gaussian random variate with mean and variance which are constrained by the heights on the previous steps.  I.e., equation~(\ref{deltaL}) is equivalent to equation~(\ref{deltan}) of the main text with $\sigma_{n|n-1,\ldots,1}=\sqrt{L_{nn}}$.
+where the $c_{ij}$ are the elements of $C$, $R_m = c_{ij}|_{i,j = 1}^m$, $R_m^{-1}$ is its inverse, and $c_i^{*j} = (c_{1j}, c_{2j}, \dots, c_{i-1 j})$ for $j \geq i$, so $c_i \equiv c_i^{*i}$. Inserting this expression for $L$ shows that, in effect, this algorithm gets $\delta_i$ as a Gaussian random variate with mean and variance which are constrained by the heights on the previous steps. Algorithmically, our Cholesky decomposition algorithm constructs $L$ as follows:
 
-Algorithmically, our Cholesky decomposition algorithm constructs $\mathbf{L}$ as follows:\\
-
- {\tt input} $n, C_{ij}$\\
-
- {\tt for} $k = 1, 2, ..., n$ {\tt do}
-
-   $\qquad L_{kk} \leftarrow \Big( C_{kk} - \displaystyle\sum_{s=1}^{k-1} L_{ks}^2\Big)^{1/2}$
-
-   $\qquad${\tt for} $i = k+1, k+2, ..., n$ {\tt do}
-
-     $\qquad\qquad L_{ik} \leftarrow \Big( C_{ik} - \displaystyle\sum_{s=1}^{k-1} L_{is} L_{ks} \Big) \Big/ L_{kk}$
-
- $\qquad${\tt end}
-
- {\tt end}\\
-
- {\tt output} $L_{ij}$\\
+ ![cholesky](../images/blog_images/non-markov/cholesky.png)
 
  Note that we could instead have chosen to work with the basis in which $\mathbf{C}$ is diagonal.  If $\lambda_k$ and $v_k$ denote the eigenvalues and eigenvectors of $\mathbf{C}$, then each $\delta_i$ is a suitably weighted linear combination of {\em all} the $v_k$.  We call this the `eigen-decomposition' method.  In practice, diagonalizing requires more operations than Cholesky, so it is not as efficient.  For small matrices, the difference is not large, but when $\mathbf{C}$ is a $10^4\times 10^4$ matrix, as for the walks shown in the main text, we found Cholesky was about $40\times$ faster than the eigen-decomposition method.
 
- Finally, it is interesting to contrast our Cholesky algorithm with the `traditional' approach of Bond et al. (1991).  This approach exploits the fact that the Fourier modes in a Gaussian field are independent.  Therefore, if $g_k$ denotes the amplitude of the $k$th Fourier mode, then the walk $\delta_j = \sum_{k=1}^j g_k$ that one gets by including one Fourier mode at a time, is Markov.  Suppose we generalize this slightly to define $\delta_j = \sum W_{jk}\,g_k$, where $W_{jk}$ is a `smoothing filter', and the sum is over all $k$.  Clearly, the statistics of $\delta_j$ depend on the form of $W$.  Markov walks result if $W_{jk} = 1$ for $k\le j$ and $W_{ij}=0$ otherwise, but for all other $W$, the $\delta_j$ are not Markov.  Thus, if $W$ is known (e.g., the TopHat in real space), then one approach is to generate Markov walks and then smooth them with the appropriately chosen filter to obtain the non-Markov walks. For generic smoothing filters, each $\delta_j$ is a weighted sum of {\em all} the $g_k$ (rather than of only the previous $g_k$).  Moreover, since this algorithm is effectively computing a Monte-Carlo integration over the Fourier modes $g_k$, the steps in Fourier space must be rather closely spaced.  This slows this traditional algorithm for accounting for correlations between scales considerably.
+ Finally, it is interesting to contrast our Cholesky algorithm with the "traditional" approach of Bond et al. (1991).  This approach exploits the fact that the Fourier modes in a Gaussian field are independent.  Therefore, if $g_k$ denotes the amplitude of the $k$th Fourier mode, then the walk $\delta_j = \sum_{k=1}^j g_k$ that one gets by including one Fourier mode at a time, is Markov.  Suppose we generalize this slightly to define $\delta_j = \sum W_{jk}\,g_k$, where $W_{jk}$ is a "smoothing filter", and the sum is over all $k$.  Clearly, the statistics of $\delta_j$ depend on the form of $W$.  Markov walks result if $W_{jk} = 1$ for $k\le j$ and $W_{ij}=0$ otherwise, but for all other $W$, the $\delta_j$ are not Markov.  Thus, if $W$ is known (e.g., the TopHat in real space), then one approach is to generate Markov walks and then smooth them with the appropriately chosen filter to obtain the non-Markov walks. For generic smoothing filters, each $\delta_j$ is a weighted sum of {\em all} the $g_k$ (rather than of only the previous $g_k$).  Moreover, since this algorithm is effectively computing a Monte-Carlo integration over the Fourier modes $g_k$, the steps in Fourier space must be rather closely spaced.  This slows this traditional algorithm for accounting for correlations between scales considerably.
 
  ![TH_random_walks](../images/blog_images/non-markov/THnm2.png)
  *Ensemble of non-Markov trajectories, which are associated with Top-hat smoothing filter, shown as a function of walk height variance $S$. One of the walks is highlighted to show where it up crosses a barrier of height $\delta_c=1.686$ for the first time, first down crosses and where it up crosses the barrier for a second time. About 40% of the walks have a first up-crossing in the range of $S$ we show; 10% also have a second up-crossing in this range. Upper panel shows the first up-crossing distribution estimated using $10^6$ trajectories, generated using the Cholesky decomposition algorithm.*
