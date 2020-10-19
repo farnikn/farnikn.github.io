@@ -41,11 +41,11 @@ L = \begin{pmatrix}
 	c_{12} & \sqrt{1 - c_{12}^2} & 0 & \cdots & 0 \\
 	c_{13} & \frac{c_{23} - c_{12}c_{13}}{\sqrt{1 - c_{12}^2}} & \sqrt{1 - c_3 R_2^{-1} c_3^T} & \cdots & 0 \\
 	\vdots & \vdots & \vdots & \ddots & \vdots \\
-	c_{1n} & \frac{c_{2n} - c_{12}c_{1n}}{\sqrt{1-c_{12}^2}} & \frac{c_{3n} - \tilde{c}_3^{n} R_2^{-1} c_3^T}{\sqrt{1 - c_3 R_2^{-1} c_3^T}} & \cdots & \sqrt{1 - c_n R_{n-1}^{-1} c_n^T}
+	c_{1n} & \frac{c_{2n} - c_{12}c_{1n}}{\sqrt{1-c_{12}^2}} & \frac{c_{3n} - c_3^{\*n} R_2^{-1} c_3^T}{\sqrt{1 - c_3 R_2^{-1} c_3^T}} & \cdots & \sqrt{1 - c_n R_{n-1}^{-1} c_n^T}
 	\end{pmatrix}, 
 $$
 
-where the $c_{ij}$ are the elements of $C$, $R_m = c_{ij}|_{i,j = 1}^m$, $R_m^{-1}$ is its inverse, and $\tilde{c}_i^{j} = (c_{1j}, c_{2j}, \dots, c_{i-1 j})$ for $j \geq i$, so $c_i \equiv \tilde{c}_i^{i}_$. Inserting this expression for $L$ shows that, in effect, this algorithm gets $\delta_i$ as a Gaussian random variate with mean and variance which are constrained by the heights on the previous steps. Algorithmically, our Cholesky decomposition algorithm constructs $L$ as follows:
+where the $c_{ij}$ are the elements of $C$, $R_m = c_{ij}|\_{i,j = 1}^m$, $R_m^{-1}$ is its inverse, and $c_i^{\*j} = (c_{1j}, c_{2j}, \dots, c_{i-1 j})$ for $j \geq i$, so $c_i \equiv c_i^{\*i}$. Inserting this expression for $L$ shows that, in effect, this algorithm gets $\delta_i$ as a Gaussian random variate with mean and variance which are constrained by the heights on the previous steps. Algorithmically, our Cholesky decomposition algorithm constructs $L$ as follows:
 
  ![cholesky](/images/blog_images/non-markov/cholesky.png)
 
