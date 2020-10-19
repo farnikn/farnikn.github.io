@@ -27,7 +27,7 @@ For Gaussian statistics, $\xi_n$ is a zero-mean unit variance Gaussian random nu
 
 First, consider a vector $\textbf{\xi}$, which is Gaussian white noise with zero mean and unit variance (i.e. $\langle \xi_m \xi_n \rangle = \delta_{mn}$). If we generate our desired trajectories as
 
-$$ \delta_i = \sum_{j} L_{ij} \xi_j $$,
+$$ \delta_i = \sum_{j} L_{ij} \xi_j, $$
 
 then the $\delta_i$ will have correlations between heights given by
 
