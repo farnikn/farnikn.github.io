@@ -1,6 +1,14 @@
-"AJP":
-  url: https://aapt.scitation.org/journal/ajp
+"ApJ Letters":
   color: "#00369f"
 
-"PhysRev":
-  url: https://journals.aps.org/
+"ApJ":
+  color: "#00369f"
+
+"Phys. Rev. Letters":
+  color: "#00369f"
+
+"PRD":
+  color: "#00369f"
+
+"PRE":
+  color: "#00369f"
