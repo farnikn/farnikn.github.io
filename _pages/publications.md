@@ -1,7 +1,8 @@
 ---
 layout: page
 permalink: /publications/
-title: Publications
+title: publications
+header: publications
 description: Here is my <a href='https://ui.adsabs.harvard.edu/search/q=%20author%3A%22nikakhtar%2C%20f%22&sort=date%20desc%2C%20bibcode%20desc&p_=0'>NASA ADS list</a>. 
 
 categories: ['Peer Reviewed Journals', 'Data Release Papers', 'Conference Proceedings']
@@ -9,7 +10,7 @@ catprint: ['', 'Peer Reviewed Journals', 'Data Release Papers', 'Conference Proc
 
 years: [2015, 2017, 2018, 2019, 2020, 2021, 2022, 2023]
 nav: true
-nav_order: 1
+nav_order: 3
 ---
 <!-- _pages/publications.md -->
 <div class="publications">
