@@ -1,6 +1,3 @@
-# pylint: disable=trailing-whitespace
-import ads
-
 def make_bib(author, outfile="cv.bib"):
     '''
     fetch all files on ads and make a bibtext file from it
