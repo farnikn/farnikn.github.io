@@ -1,3 +1,6 @@
+# pylint: disable=trailing-whitespace
+import ads
+
 def make_bib(author, outfile="cv.bib"):
     '''
     fetch all files on ads and make a bibtext file from it
@@ -10,15 +13,14 @@ def make_bib(author, outfile="cv.bib"):
     ----------    
     first author papers
     >> make_bib("^Last name, first_name")
-    
+
     all papers
     >> make_bib("Last name, first_name") # note the removed
 
-    Notes:
-    
+    Notes:     
     '''
     papers = list(
-            ads.SearchQuery(
+        ads.SearchQuery(
                 q=f'=author:\"{author}\"',
                 fl=[
                     "citation_count",
