@@ -26,7 +26,7 @@ jobs:
 
     - name: Run the script
       run: |
-        python bin/get_bib.py  # Replace with the path to your script file
+        python bin/get_ads.py  # Replace with the path to your script file
 
     - name: push changes
       run: |

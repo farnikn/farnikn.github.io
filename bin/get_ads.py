@@ -33,4 +33,4 @@ def make_bib(author, outfile="cv.bib"):
             out.write(bibs)
 
 if __name__ == '__main__':
-    make_bib("^Nikakhtar, Farnik", outfile='_bibliography/papers.bib')
+    make_bib("^Nikakhtar, Farnik", outfile='../_bibliography/papers.bib')
