@@ -35,4 +35,6 @@ def make_bib(author, outfile="cv.bib"):
             out.write(bibs)
 
 if __name__ == '__main__':
+    import os
+    os.mkdir('_bibliography')
     make_bib("^Nikakhtar, Farnik", outfile='_bibliography/papers.bib')
