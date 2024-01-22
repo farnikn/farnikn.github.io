@@ -32,7 +32,6 @@ jobs:
 
     - name: push changes
       run: |
-        git pull origin master
         git add *.bib
         git -c user.name='farnikn' -c user.email='farnik.nikakhtar@yale.edu' commit -m "updating bib file"
         git push origin master
