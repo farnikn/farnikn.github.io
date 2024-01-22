@@ -1,5 +1,5 @@
 import ads
-
+ads.config.token = '7replqPUN61x00aeBUdB2s78ufN8YYAo8l6fJaHH'
 def make_bib(author, outfile="cv.bib"):
     '''
     fetch all files on ads and make a bibtext file from it
