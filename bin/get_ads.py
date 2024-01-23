@@ -1,6 +1,4 @@
-import ads, re
-ads.config.token = '7replqPUN61x00aeBUdB2s78ufN8YYAo8l6fJaHH'
-
+import ads
 
 # Function to determine the kind value based on the entry's type and title content
 def determine_kind(bibtex_entry):
