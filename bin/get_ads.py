@@ -4,37 +4,22 @@ ads.config.token = '7replqPUN61x00aeBUdB2s78ufN8YYAo8l6fJaHH'
 
 # Function to determine the kind value based on the entry's type and title content
 def determine_kind(bibtex_entry):
-    # Check for @ARTICLE or @INPROCEEDINGS at the beginning of the entry
     if bibtex_entry.strip().startswith('@ARTICLE'):
-        kind_value = "Peer Reviewed Journals"
+        return "Peer Reviewed Journals"
     elif bibtex_entry.strip().startswith('@INPROCEEDINGS'):
-        kind_value = "Conference Proceedings"
+        return "Conference Proceedings"
+    elif 'data release' in bibtex_entry.lower() or 'database' in bibtex_entry.lower():
+        return "Data Release Papers"
     else:
-        kind_value = None
-    
-    # Extract the title using a regular expression
-    title_match = re.search(r"title\s*=\s*\{([^\}]+)\}", bibtex_entry, re.IGNORECASE)
-    if title_match:
-        title = title_match.group(1).lower()  # Get the title in lowercase for case-insensitive matching
-        # Check if the title contains 'data release' or 'database'
-        if 'data release' in title or 'database' in title:
-            kind_value = "Data Release Papers"
-
-    return kind_value
+        return None  # No specific kind determined
 
 
 def add_kind_to_bibtex(bibtex_entry, kind_value):
     # Determine where to insert the new keyword
     last_comma_index = bibtex_entry.rfind(",")
-    insertion_point = last_comma_index + 1 if last_comma_index != -1 else len(bibtex_entry)
-    # Prepare the kind keyword line, only add if kind_value is not None
-    if kind_value:
-        kind_keyword_line = f"       kind = {{{kind_value}}},\n"
-        # Insert the kind keyword
-        updated_entry = bibtex_entry[:insertion_point] + "\n" + kind_keyword_line + bibtex_entry[insertion_point:]
-    else:
-        # If no kind_value is determined, return the entry unchanged
-        updated_entry = bibtex_entry
+    kind_keyword_line = f"       kind = {{{kind_value}}},\n"
+    # Insert the kind keyword
+    updated_entry = bibtex_entry[:last_comma_index+1] + "\n" + kind_keyword_line + bibtex_entry[last_comma_index+1:]
     return updated_entry
 
 
