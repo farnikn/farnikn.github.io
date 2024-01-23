@@ -11,7 +11,7 @@ def determine_kind(bibtex_entry):
     elif 'data release' in bibtex_entry.lower() or 'database' in bibtex_entry.lower():
         return "Data Release Papers"
     else:
-        return None  # No specific kind determined
+        return None
 
 
 def add_kind_to_bibtex(bibtex_entry, kind_value):
