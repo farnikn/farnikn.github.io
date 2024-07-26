@@ -41,7 +41,7 @@ def replace_journal_name(bibtex_entry):
                     '\\mnras':'Monthly Notices of the RAS'
                     }
     journal_regex = r'journal\s*=\s*\{([^}]+)\}'
-    journal = re.search(journal_regex, bibs, re.IGNORECASE).group(1)
+    journal = re.search(journal_regex, bibtex_entry, re.IGNORECASE).group(1)
     if journal in journal_dict:
         updated_entry = bibtex_entry.replace(journal, journal_dict[journal])
         return updated_entry
