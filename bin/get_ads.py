@@ -31,19 +31,19 @@ def add_kind_to_bibtex(bibtex_entry, kind_value):
     return updated_entry
 
 def replace_journal_name(bibtex_entry):
-    journal_dict = {'\prl':'Physical Review Letters',
-                    '\prd':'Physical Review D',  
-                    '\pre':'Physical Review E',
-                    '\apjl':'Astrophysical Journal, Letters', 
-                    '\apj':'Astrophysical Journal', 
-                    '\apjs':'Astrophysical Journal, Supplement', 
-                    '\jcap':'Journal of Cosmology and Astroparticle Physics', 
-                    '\mnras':'Monthly Notices of the RAS'
+    journal_dict = {'\\prl':'Physical Review Letters',
+                    '\\prd':'Physical Review D',  
+                    '\\pre':'Physical Review E',
+                    '\\apjl':'Astrophysical Journal, Letters', 
+                    '\\apj':'Astrophysical Journal', 
+                    '\\apjs':'Astrophysical Journal, Supplement', 
+                    '\\jcap':'Journal of Cosmology and Astroparticle Physics', 
+                    '\\mnras':'Monthly Notices of the RAS'
                     }
-    journal_regex = r'journal\s*=\s*"\{([^}]+)\}"'
-    journal = re.search(journal_regex, bibtex_entry, re.IGNORECASE).group(1)
+    journal_regex = r'journal\s*=\s*\{([^}]+)\}'
+    journal = re.search(journal_regex, bibs, re.IGNORECASE).group(1)
     if journal in journal_dict:
-        updated_entry = re.sub(journal, journal_dict[journal], bibtex_entry)
+        updated_entry = bibtex_entry.replace(journal, journal_dict[journal])
         return updated_entry
     return bibtex_entry
 
