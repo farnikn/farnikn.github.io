@@ -9,6 +9,8 @@ categories: ['Peer Reviewed Journals', 'Data Release Papers', 'Conference Procee
 catprint: ['', 'Peer Reviewed Journals', 'Data Release Papers', 'Conference Proceedings']
 
 years: [2015, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024]
+# months: ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec']
+
 nav: true
 nav_order: 3
 ---
@@ -33,7 +35,9 @@ nav_order: 3
       <h2 class="year">{{y}}</h2>
       {% bibliography -f papers -q @*[kind={{cat_}} && year={{y}}]* %}
     {% endif %}
+
   {% endfor %}
+
 {% endfor %}
 
 </div>

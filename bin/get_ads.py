@@ -30,6 +30,22 @@ def add_kind_to_bibtex(bibtex_entry, kind_value):
     updated_entry = bibtex_entry[:last_comma_index+1] + "\n" + kind_keyword_line + bibtex_entry[last_comma_index+1:]
     return updated_entry
 
+def replace_journal_name(bibtex_entry):
+    journal_dict = {'\prl':'Physical Review Letters',
+                    '\prd':'Physical Review D',  
+                    '\pre':'Physical Review E',
+                    '\apjl':'Astrophysical Journal, Letters', 
+                    '\apj':'Astrophysical Journal', 
+                    '\apjs':'Astrophysical Journal, Supplement', 
+                    '\jcap':'Journal of Cosmology and Astroparticle Physics', 
+                    '\mnras':'Monthly Notices of the RAS'
+                    }
+    journal_regex = r'journal\s*=\s*"\{([^}]+)\}"'
+    journal = re.search(journal_regex, bibtex_entry, re.IGNORECASE).group(1)
+    if journal in journal_dict:
+        updated_entry = re.sub(journal, journal_dict[journal], bibtex_entry)
+        return updated_entry
+    return bibtex_entry
 
 def make_bib(author, outfile="cv.bib"):
     '''
@@ -70,6 +86,7 @@ def make_bib(author, outfile="cv.bib"):
 
             kind_value = determine_kind(bibs)  # Determine the kind based on the entry
             bibs = add_kind_to_bibtex(bibs, kind_value)
+            bibs = replace_journal_name(bibs)
 
             out.write(bibs)
 
