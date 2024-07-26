@@ -4,7 +4,7 @@ permalink: /outreach/
 title: outreach
 header: outreach and press
 description:
-nav: true
+nav: false
 nav_order: 5
 ---
 

@@ -3,7 +3,7 @@ layout: page
 permalink: /publications/
 title: publications
 header: publications
-description: Here is my <a href='https://ui.adsabs.harvard.edu/search/q=%20author%3A%22nikakhtar%2C%20f%22&sort=date%20desc%2C%20bibcode%20desc&p_=0'>NASA ADS list</a>. 
+description: 
 
 categories: ['Peer Reviewed Journals', 'Data Release Papers', 'Conference Proceedings']
 catprint: ['', 'Peer Reviewed Journals', 'Data Release Papers', 'Conference Proceedings']

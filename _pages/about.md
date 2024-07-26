@@ -2,7 +2,7 @@
 layout: about
 title: about
 permalink: /
-subtitle: <a href='https://physics.yale.edu/'>Yale University</a> | <a href='https://physics.yale.edu/people/farnik-nikakhtar'> Postdoctoral Fellow</a>
+subtitle: Cosmologist/Astrophysicist at <a href='https://physics.yale.edu/people/farnik-nikakhtar'>Yale University</a> 
 
 profile:
   align: right
@@ -15,13 +15,13 @@ selected_papers: false # includes a list of papers marked as "selected={true}"
 social: false  # includes social icons at the bottom of the page
 ---
 
-I am a YCAA Prize Fellow at the <a href='https://ycaa.yale.edu/'>Yale Center for Astronomy and Astrophysics</a>, where I work on various concepts in theoretical astrophysics. I obtained my Ph.D. in Physics and Astronomy from the <a href='https://live-sas-physics.pantheon.sas.upenn.edu/'>University of Pennsylvania</a>, along with a dual Master’s degree in Statistics from the <a href='https://statistics.wharton.upenn.edu/'>Wharton School</a>. Prior to Penn, I completed my B.Sc. in Physics (minor in Computer Science) at <a href='https://en.sharif.edu/'>Sharif University of Technology</a>. 
+<!-- I am a YCAA Prize Fellow at the <a href='https://ycaa.yale.edu/'>Yale Center for Astronomy and Astrophysics</a>, where I work on various concepts in theoretical astrophysics. I obtained my Ph.D. in Physics and Astronomy from the <a href='https://live-sas-physics.pantheon.sas.upenn.edu/'>University of Pennsylvania</a>, along with a dual Master’s degree in Statistics from the <a href='https://statistics.wharton.upenn.edu/'>Wharton School</a>. Prior to Penn, I completed my B.Sc. in Physics (minor in Computer Science) at <a href='https://en.sharif.edu/'>Sharif University of Technology</a>. 
 {: .text-justify}
 
 My research spans a wide range of topics from cosmological scales (large scale structure and dark energy) to galactic scales (stellar dynamics and dark matter). I am an active member of the Dark Energy Spectroscopic Instrument (DESI)
 {: .text-justify}
 
-Energy in the Universe is distributed as roughly ~70% dark energy and ~30% dark matter. My research is split into dark energy-related and dark matter-related work with a similar distribution of focus! 
+Energy in the Universe is distributed as roughly ~70% dark energy and ~30% dark matter. My research is split into dark energy-related and dark matter-related work with a similar distribution of focus!  -->
 
 <!-- My work incorporates theoretical and observational evidence drawn from studies of large-scale structure (LSS) of the universe to constrain fundamental physics of dark energy. 
 is a theorist, but has a particular interest in statistics, data analysis, and collaboration with observational programs.
