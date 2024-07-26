@@ -40,7 +40,10 @@ def replace_journal_name(bibtex_entry):
                     '\\jcap':'Journal of Cosmology and Astroparticle Physics', 
                     '\\mnras':'Monthly Notices of the RAS'
                     }
-    journal_regex = r'journal\s*=\s*\{(.*?)\}'
+    title_regex = r'title\s*=\s*"\{([^}]+)\}"'
+    title = re.search(title_regex, bibtex_entry, re.IGNORECASE).group(1)
+    print(title)
+    journal_regex = r'journal\s*=\s*\{([^}]+)\}'
     journal = re.search(journal_regex, bibtex_entry, re.IGNORECASE).group(1)
     if journal in journal_dict:
         updated_entry = bibtex_entry.replace(journal, journal_dict[journal])
