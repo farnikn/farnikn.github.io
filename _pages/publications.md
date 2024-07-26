@@ -3,7 +3,8 @@ layout: page
 permalink: /publications/
 title: publications
 header: publications
-description: 
+description: publications by categories in reversed chronological order.
+
 
 categories: ['Peer Reviewed Journals', 'Data Release Papers', 'Conference Proceedings']
 catprint: ['', 'Peer Reviewed Journals', 'Data Release Papers', 'Conference Proceedings']
