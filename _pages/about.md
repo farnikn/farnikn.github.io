@@ -8,9 +8,9 @@ profile:
   align: right
   image: prof_pic.jpg
   image_circular: false # crops the image to make it circular
-  address: > 
+  address: 
 
-news: false  # includes a list of news items
+news: true  # includes a list of news items
 selected_papers: false # includes a list of papers marked as "selected={true}"
 social: false  # includes social icons at the bottom of the page
 ---
@@ -21,3 +21,5 @@ I am a <a href='https://physics.yale.edu/opportunities/ycaa-prize-fellowship/'>Y
 
 My research aims to <b>advance our understanding of fundamental physics</b> through an interdisciplinary approach that integrates <b>large-scale cosmological observations, theoretical physics,</b> and <b>advanced statistical and computational methods</b>. A significant portion of my work involves modeling the formation and evolution of the large-scale structure (LSS) of the universe. Additionally, I investigate stellar dynamics and the structure of the Milky Way. Over the past few years, I have developed novel algorithms based on <a href='https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.129.251101'>optimal transport theory to reconstruct the initial conditions of galaxies observed in spectroscopic surveys</a>. These tools, tailored to address challenges in cosmology and astrophysics, enable us to trace the evolution of cosmic structures and reconstruct the initial density and displacement field of biased tracers, thereby improving constraints on cosmological parameters, such as those derived from Baryon Acoustic Oscillations (BAO) (see a feature in <a href='https://physics.yale.edu/news/yale-news-insights-and-outcomes-got-cosmic-milk'>Yale News</a>). Successful within the physics, computer science, and applied mathematics communities, these tools provide a foundation for understanding cosmic structure formation and evolution in astrophysical research. More broadly beyond astrophysics, my research involves interdisciplinary collaborations at the intersection of physics, nonlinear dynamics, and network science. In this context, I have developed physical models and statistical methods to explore the physics of <a href='https://iopscience.iop.org/article/10.1088/1367-2630/acec63'>higher-order interactions in complex systems</a>.
 {: .text-justify}
+
+
